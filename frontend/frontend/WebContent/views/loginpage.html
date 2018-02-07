@@ -1,0 +1,19 @@
+<div id="main"
+	style="width: 40%; margin-left: auto; margin-right: auto;" s>
+	
+		<form>
+			<h2 class="form-signin-heading">Login</h2>
+			<br> <label><b>Username</b></label> <input class="form-control"
+				type="text" placeholder="Enter username" ng-model="user.username">
+			<br> <br> <label><b>Password</b></label> <input
+				class="form-control" type="password" placeholder="Enter Password"
+				ng-model="user.password" required> <br> <br> <span
+				style="color: red;">{{error.message}}</span>
+			<button style="width: 100px; margin-left: 90px;"
+				class="btn btn-success btn-outline" type="submit" class="submitbtn"
+				ng-click="login()">Login</button>
+
+		</form>
+
+	
+</div>

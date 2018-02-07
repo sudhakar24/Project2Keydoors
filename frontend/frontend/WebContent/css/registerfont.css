@@ -1,0 +1,20 @@
+.form-control{
+	width:50%;
+	
+}
+.labelst{
+	width:50%;
+	float:left;
+}
+.btn-success {
+    color: white !important;
+    background-color: #003dab !important;
+    border-color: #003dab !important;
+}
+.element.style {
+    width: 25% !important;
+    margin-left:10px !important;
+}
+.btn{
+	border-radius:20px !important;
+}
