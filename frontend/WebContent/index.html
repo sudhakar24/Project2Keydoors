@@ -2,6 +2,43 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Mobirise v4.6.4, mobirise.com">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1">
+<link rel="shortcut icon"
+	href="assets/indexpagedesign/images/logo-128x128.jpg"
+	type="image/x-icon">
+<meta name="description" content="">
+<title>keydoors</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&subset=latin,cyrillic">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700&subset=latin,vietnamese,latin-ext">
+<link rel="stylesheet"
+	href="assets/indexpagedesign/tether/tether.min.css">
+<link rel="stylesheet"
+	href="assets/indexpagedesign/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="assets/indexpagedesign/socicon/css/socicon.min.css">
+<link rel="stylesheet"
+	href="assets/indexpagedesign/puritym/css/style.css">
+<link rel="stylesheet"
+	href="assets/indexpagedesign/dropdown-menu/style.light.css">
+<link rel="stylesheet"
+	href="assets/indexpagedesign/mobirise/css/mbr-additional.css"
+	type="text/css">
+	<link rel="stylesheet" href="assets/indexpagedesign/soundcloud-plugin/style.css">
+  
+<script src="assets/indexpagedesign/web/assets/jquery/jquery.min.js"></script>
+<script src="assets/indexpagedesign/tether/tether.min.js"></script>
+<script src="assets/indexpagedesign/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/indexpagedesign/smooth-scroll/SmoothScroll.js"></script>
+<script
+	src="assets/indexpagedesign/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js"></script>
+<script src="assets/indexpagedesign/puritym/js/script.js"></script>
+<script src="assets/indexpagedesign/dropdown-menu/script.js"></script>
+
 <!--  Bootstrap, Angular Js ,Angular Route js -->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -20,103 +57,158 @@
 	rel="stylesheet" />
 <title>Insert title here</title>
 </head>
+
 <body ng-app="app">
-	<header>
-		<div id="main"
-			style="width: 80%; margin-left: auto; margin-right: auto;">
-			<nav id="navbar-red" class="navbar navbar-default" role="navigation">
-				<div class="container-fluid">
-					<ul class="nav navbar-nav">
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target="#bs-example-nav">
-							<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-					</ul>
+	<section id="dropdown-menu-2btn-3" data-rv-view="6">
+
+		<nav class="navbar navbar-dropdown navbar-fixed-top">
+
+			<div class="container">
+
+				<div class="navbar-brand">
+					<a href="#/name" class="navbar-logo"><img
+						src="assets/indexpagedesign/images/logo-128x128.jpg"></a> <a
+						class="text-black" href="#/name">KeyDoors</a>
 				</div>
-				<div class="collapse navbar-collapse" id="bs-example-nav">
-					<ul class="nav navbar-nav navbar-left">
-						<a href="#/name"><h3 class="nav-icon">KeyDoor</h3></a>
 
-					</ul>
+				<button class="navbar-toggler pull-xs-right hidden-md-up"
+					type="button" data-toggle="collapse"
+					data-target="#exCollapsingNavbar">
+					<div class="hamburger-icon"></div>
+				</button>
 
-					<div class="navicon">
+				<ul
+					class="nav-dropdown collapse pull-xs-right navbar-toggleable-sm nav navbar-nav"
+					id="exCollapsingNavbar">
 
-						<ul class="nav navbar-nav navbar-right">
-							<div class="dropdown">
-								<button class="dropbtn">
-									<p class="coloricon" ng-show="currentUser.username">
-										Welcome {{currentUser.username}}</p>
-								</button>
-								<div class="dropdown-content">
-									<a class="coloricon" href="#/editprofile"
-										ng-show="currentUser.username">Edit Profile </a> <a
-										class="coloricon" href="" ng-show="currentUser.username"
-										ng-click="logout()"><i class="fa fa-sign-in"
-										aria-hidden="true"></i> logout</a>
-								</div>
-							</div>
 
-						</ul>
 
-						<ul class="nav navbar-nav navbar-right">
-							<a class="coloricon" href="#/register"
-								ng-hide="currentUser.username"><i class="fa fa-user-plus"
-								aria-hidden="true"></i> Sign Up</a>
-							<a class="coloricon" href="#/login"
-								ng-hide="currentUser.username"><i class="fa fa-sign-in"
-								aria-hidden="true"></i> Login</a>
-						</ul>
-					</div>
-					
-					<li class="dropdown"><a href="" class="dropdown-toggle"
-						data-toggle="dropdown" ng-show="currentUser.username"> <span
+					<li class="nav-item dropdown"><a
+						class="nav-link link dropdown-toggle"
+						data-toggle="dropdown-submenu" ng-show="currentUser.username">Job
+					</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#/addjob"
+								ng-show="currentUser.role=='ADMIN'">Add Job</a> <a
+								class="dropdown-item" href="#/alljobs">Get All jobs</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link link dropdown-toggle"
+						data-toggle="dropdown-submenu" ng-show="currentUser.username">Blog
+					</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#/addblog">Add Blog Post</a> <a
+								class="dropdown-item" href="#/getblogs">All Blogs</a></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link link dropdown-toggle"
+						data-toggle="dropdown-submenu" ng-show="currentUser.username">Friend</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#/suggestedusers">Suggested
+								users</a> <a class="dropdown-item" href="#/pendingrequests">Pending
+								Requests</a> <a class="dropdown-item" href="#/getfriends">Friends</a></li>
+					<li class="nav-item"><a class="nav-link link" href="#/chat"
+						ng-show="currentUser.username">chat </a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link link dropdown-toggle"
+						data-toggle="dropdown-submenu" ng-show="currentUser.username"><span
 							class="glyphicon glyphicon-globe ng-click="updateLength()">
 								<span class="rw-number-notification"
-								ng-if="notificationNotViewedLength>0">{{notificationNotViewedLength}}</span>
-						</span></a>
-						<ul class="dropdown-menu">
-							<li ng-repeat="notification in notificationNotViewed"><a
-								href="" ng-click="updateNotification(notification.id)"
-								style="color: red"> <b>"{{notification.blogTitle}}"</b> is
-									{{notification.approvalStatus}}
-									{{notification.rejectionReason}}
-							</a></li>
-							<li ng-repeat="notification in notificationViewed"><a
-								href="" ng-click="" style="color: blue">
-									{{notification.blogTitle}} is {{notification.approvalStatus}}
-									{{notification.rejectionReason}}</a></li>
-						</ul></li>
-
-
-
-					<ul class="nav navbar-nav navbar-right">
-						<div class="dropdown">
-							<button class="dropbtn" ng-show="currentUser.username">Job</button>
-							<div class="dropdown-content">
-								<a class="coloricon" href="#/addjob"
-									ng-show="currentUser.role=='ADMIN'">Add Job</a> <a
-									class="coloricon" href="#/alljobs">Get All jobs</a>
-							</div>
+								ng-if="notificationNotViewedLength>0">{{notificationNotViewedLength}}</span></a>
+						<div class="dropdown-menu"
+							ng-repeat="notification in notificationNotViewed">
+							<a class="dropdown-item"
+								ng-click="updateNotification(notification.id)"
+								style="color: red">"{{notification.blogTitle}}"</b> is
+								{{notification.approvalStatus}} {{notification.rejectionReason}}
+							</a>
 						</div>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<div class="dropdown">
-							<button class="dropbtn" ng-show="currentUser.username">Blog</button>
-							<div class="dropdown-content">
-								<a class="coloricon" href="#/addblog">Add Blog Post</a> <a
-									class="coloricon" href="#/getblogs">All Blogs</a>
-							</div>
-						</div>
-					</ul>
-				</div>
-			</nav>
-		</div>
+						<div class="dropdown-menu"
+							ng-repeat="notification in notificationViewed">
+							<a class="dropdown-item" style="color: blue">"{{notification.blogTitle}}
+								is {{notification.approvalStatus}}
+								{{notification.rejectionReason}}</a> </a>
+						</div></li>
 
-	</header>
-	<div ng-view></div>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link link dropdown-toggle"
+						data-toggle="dropdown-submenu" ng-show="currentUser.username">Welcome
+							{{currentUser.username}} <img src="http://localhost:8082/middleware/getimage/{{currentUser.username}}" alt="Upload profile picture"></img>
+ </a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#/editprofile"
+								ng-show="currentUser.username">Edit Profile</a> <a
+								class="dropdown-item" href="#/updateprofile"
+								ng-show="currentUser.username">Update Profile Picture</a> <a
+								class="dropdown-item" ng-show="currentUser.username"
+								ng-click="logout()">logout</a>
+						</div></li>
+
+					<li class="nav-item nav-btn"><a
+						class="nav-link btn btn-black btn-black-outline" href="#/login"
+						ng-hide="currentUser.username">LogIn</a></li>
+					<li class="nav-item nav-btn"><a
+						class="nav-link btn btn-danger" href="#/register"
+						ng-hide="currentUser.username">SignUp</a></li>
+				</ul>
+
+			</div>
+
+		</nav>
+		<div ng-view></div>
 </body>
+<div id="footer1" style="margin-top: 00px;">
+	<section class="mbr-section mbr-section-small" id="social-buttons2-a"
+		data-rv-view="37"
+		style="background-color: rgb(255, 248, 224); padding-top: 4.5rem; padding-bottom: 4.5rem;">
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<h2 class="mbr-section-title h1">Follow Us</h2>
+				</div>
+				<div class="col-sm-8 text-xs-right">
+					<a class="btn btn-social socicon-bg-twitter" title="Twitter"
+						target="_blank" href="https://twitter.com"><i
+						class="socicon socicon-twitter"></i></a> <a
+						class="btn btn-social socicon-bg-facebook" title="Facebook"
+						target="_blank" href="https://www.facebook.com"><i
+						class="socicon socicon-facebook"></i></a> <a
+						class="btn btn-social socicon-bg-google" title="Google+"
+						target="_blank" href="https://plus.google.com/"><i
+						class="socicon socicon-google"></i></a> <a
+						class="btn btn-social socicon-bg-youtube" title="YouTube"
+						target="_blank" href="https://www.youtube.com/"><i
+						class="socicon socicon-youtube"></i></a> <a
+						class="btn btn-social socicon-bg-instagram" title="Instagram"
+						target="_blank" href="https://instagram.com"><i
+						class="socicon socicon-instagram"></i></a> <a
+						class="btn btn-social socicon-bg-pinterest" title="Pinterest"
+						target="_blank" href="https://www.pinterest.com/"><i
+						class="socicon socicon-pinterest"></i></a> <a
+						class="btn btn-social socicon-bg-tumblr" title="Tumblr"
+						target="_blank" href="http://mobirise.tumblr.com/"><i
+						class="socicon socicon-tumblr"></i></a> <a
+						class="btn btn-social socicon-bg-linkedin" title="LinkedIn"
+						target="_blank" href="https://www.linkedin.com/in/"><i
+						class="socicon socicon-linkedin"></i></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="mbr-section mbr-section-nopadding mbr-footer"
+		id="footer1-6" data-rv-view="22"
+		style="background-color: rgb(38, 39, 44); padding-top: 3rem; padding-bottom: 1.98rem;">
+
+		<div class="container">
+			<p>
+				Copyright (c) 2018 Company Name. Terms of Use | Privacy Policy</a>
+			</p>
+		</div>
+	</footer>
+</div>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <script type="text/javascript"
@@ -126,13 +218,29 @@
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="controller/usercontroller.js"></script>
 <script type="text/javascript" src="services/userservice.js"></script>
+
 <script type="text/javascript" src="controller/jobcontroller.js"></script>
 <script type="text/javascript" src="services/jobservice.js"></script>
+
 <script type="text/javascript" src="controller/blogcontroller.js"></script>
 <script type="text/javascript" src="services/blogservice.js"></script>
 <script type="text/javascript" src="controller/blogdetailscontroller.js"></script>
+
 <script type="text/javascript" src="services/homeservice.js"></script>
 <script type="text/javascript" src="controller/homecontroller.js"></script>
+
+<script type="text/javascript" src="services/friendservice.js"></script>
+<script type="text/javascript" src="controller/friendcontroller.js"></script>
+
+<script type="text/javascript" src="controller/chatcontroller.js"></script>
+<script type="text/javascript" src="services/chatservice.js"></script>
+
 <link rel="stylesheet" href="css/navigationbar.css">
 <link rel="stylesheet" href="css/registerfont.css">
+
+<script  type="text/javascript" src="js/sockjs/sockjs.js"></script>
+<script type="text/javascript" src="js/stomp/dist/stomp.js"></script>
+
+<input name="animation" type="hidden">
+
 </html>

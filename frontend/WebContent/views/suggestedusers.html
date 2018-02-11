@@ -1,0 +1,28 @@
+<table class="table">
+<thead>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Profile Pic</th>
+<th>Action</th>
+</tr>
+<tbody>
+<tr ng-repeat="user in suggestedusers">
+
+<td><a href="" ng-click="getuserdetails(user.username)">{{user.firstname}}</a></td>
+
+<td>{{user.lastname}}</td>
+<td><img src="http://localhost:8082/middleware/getimage/{{user.username}}" alt="Image not available" style="width:10px;height:10px;"/></td>
+
+<td><a  ng-click="sendFriendRequest(user.username)" > Add Friend</a></td>
+    </tr>                
+</tbody>
+</table>
+<div ng-show="showDetails">
+	<h4 style="align:center;">Profile Details</h4>
+	<br>
+	Name    : {{details.firstname}} {{details.lastname}} 
+				{{details.phonenumber}}
+	<br>
+	</div>
+

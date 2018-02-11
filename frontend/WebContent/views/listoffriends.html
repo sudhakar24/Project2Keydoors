@@ -1,0 +1,18 @@
+<table>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Image</th>
+</tr>
+<tr ng-repeat="friend in friends">
+<td><td><a href="" ng-click="getuserdetails(friend.username)">{{friend.firstname}}</td>
+<td>{{friend.lastname}}</td>
+</tr>
+</table>
+<div ng-show="showDetails">
+	<h4 style="align:center;">Profile Details</h4>
+	<br>
+	Name    : {{details.firstname}} {{details.lastname}} 
+				{{details.phonenumber}}
+	<br>
+	</div>

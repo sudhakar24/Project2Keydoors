@@ -1,0 +1,26 @@
+<div ng-show="pendingrequests.length==0">
+<b> No Request from friends</b>
+</div>
+<table class="table" ng-show="pendingrequests.length>0">
+<tr>
+<th>Username</th>
+<th>DEtails</th>
+<th>Accept</th>
+<th>Delete</th>
+</tr>
+<tbody>
+<tr ng-repeat="pendingrequest in pendingrequests">
+<td><a href="" ng-click="getuserdetails(pendingrequest.fromId)">{{pendingrequest.fromId}}</td>
+
+<td><a ng-click="updatePendingRequest(pendingrequest,'A')">Accept</a></td>
+<td><a ng-click="updatePendingRequest(pendingrequest,'D')">Delete</a></td>
+</tbody>
+
+</table>
+<div ng-show="showDetails">
+	<h4 style="align:center;">Profile Details</h4>
+	<br>
+	Name    : {{details.firstname}} {{details.lastname}} 
+				{{details.phonenumber}}
+	<br>
+	</div>
