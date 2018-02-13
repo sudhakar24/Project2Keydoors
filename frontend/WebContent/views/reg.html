@@ -2,37 +2,37 @@
     
 <section class="mbr-section mbr-section-hero mbr-section-full header2 mbr-parallax-background"
 	id="header2-6" data-rv-view="0"
-	style="background-image:url(images/backimg.jpg);background-repeat: no-repeat;">
+	style="background-image:url(images/backimg1.jpg);background-repeat: no-repeat;">
 <div id="main" 
 	style="width: 40%;margin-left: 200px; margin-right: 30px;margin-top: 100px; float:left;">
   
 	<span style="color:red;" ng-if="error.code==1">{{error.message}}</span>
   
-	<form>
+	<form name="registerForm" id="registerForm">
 		<h3 align="center" style="color:brown;">Registration Form</h3>
 <br>
 
 		<label class="labelst" style="color:brown;">User Name</label> 
 		<input class="form-control" placeholder="Enter Username"
-			type="text" ng-model="user.username">
+			type="text" ng-model="user.username" required>
 			<span style="color:red;" ng-if="error.code==2">{{error.message}}</span>
 			<br><label class="labelst" style="color:brown;">Password</label>
-		<input class="form-control" placeholder="Enter Password" type="password" ng-model="user.password">
+		<input class="form-control" placeholder="Enter Password" type="password" ng-model="user.password" min="4" max="10" required>
 		
 		<br>
 		<label class="labelst" style="color:brown;">First Name</label> <input class="form-control" placeholder="Enter First name"
-			type="text" ng-model="user.firstname"> <br><label class="labelst" style="color:brown;">Last
-			Name</label> <input class="form-control"  placeholder="Enter Last Name" type="text" ng-model="user.lastname"><br>
+			type="text" ng-model="user.firstname" required> <br><label class="labelst" style="color:brown;">Last
+			Name</label> <input class="form-control"  placeholder="Enter Last Name" type="text" ng-model="user.lastname" required><br>
 		<label class="labelst" style="color:brown;">Phone number</label> <input
-			class="form-control" placeholder="Enter Phone number" type="text" ng-model="user.phonenumber"><br>
+			class="form-control" placeholder="Enter Phone number" type="text" ng-model="user.phonenumber" required><br>
 		<label class="labelst" style="color:brown;">Email Id</label> <input class="form-control" placeholder="Enter Email-Id"
-			type="email" ng-model="user.email"> 
+			type="email" ng-model="user.email" required> 
 			<span style="color:red;" ng-if="error.code==3">{{error.message}}</span>
 			<br><label class="labelst" style="color:brown;">Country</label>
-		<input class="form-control" placeholder="Enter Country" type="text" ng-model="user.country"><br>
+		<input class="form-control" placeholder="Enter Country" type="text" ng-model="user.country" required><br>
 		<label class="labelst" style="color:brown;">Pincode</label> <input placeholder="Enter Pincode" class="form-control"
 			type="text" ng-model="user.pincode"> <br><label class="labelst" style="color:brown;">Select
-			Role:</label> <input type="radio" value="STUDENT" ng-model="user.role">Student
+			Role:</label> <input type="radio" value="STUDENT" ng-model="user.role" required>Student
 		<br><input type="radio" value="EMPLOYEE" ng-model="user.role">Employee
 		<input type="radio" value="ALUMNI" ng-model="user.role">Alumni
 		

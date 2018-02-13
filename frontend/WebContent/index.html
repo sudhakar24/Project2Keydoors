@@ -129,12 +129,12 @@
 								{{notification.rejectionReason}}</a> </a>
 						</div></li>
 
-
+<li ng-show="currentUser.username"><img src="http://localhost:8082/middleware/getimage/{{currentUser.username}}" alt="Upload profile picture" height="45" width="45" style=" border-radius: 50%;"></img></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link link dropdown-toggle"
 						data-toggle="dropdown-submenu" ng-show="currentUser.username">Welcome
-							{{currentUser.username}} <img src="http://localhost:8082/middleware/getimage/{{currentUser.username}}" alt="Upload profile picture"></img>
- </a>
+							{{currentUser.username}} 
+ 							</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="#/editprofile"
 								ng-show="currentUser.username">Edit Profile</a> <a
@@ -234,13 +234,21 @@
 
 <script type="text/javascript" src="controller/chatcontroller.js"></script>
 <script type="text/javascript" src="services/chatservice.js"></script>
-
+ 
 <link rel="stylesheet" href="css/navigationbar.css">
 <link rel="stylesheet" href="css/registerfont.css">
 
-<script  type="text/javascript" src="js/sockjs/sockjs.js"></script>
+<!-- <script  type="text/javascript" src="js/sockjs/sockjs.js"></script>
 <script type="text/javascript" src="js/stomp/dist/stomp.js"></script>
+ -->
+ <script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
 
+
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/common/portfolio.css" rel="stylesheet">
+  
 <input name="animation" type="hidden">
 
 </html>

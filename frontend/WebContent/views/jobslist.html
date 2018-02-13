@@ -11,12 +11,14 @@
 <br>
 <br>
 <br>
-	<table class="table" style="width:50%;margin-left:300px;">
+	<table class="table table-striped" style="width:50%;margin-left:300px;">
+  
 		<tr>
-			<th>Job Title</th>
-			<th>Skills Required</th>
-			<th>Posted On</th>
+			<th scope="col">Job Title</th>
+			<th scope="col">Skills Required</th>
+			<th scope="col">Posted On</th>
 		</tr>
+		
 		<tr ng-repeat="job in jobs">
 			<td><a href="" ng-click="getJob(job.id)" style="color:green;">{{job.jobTitle}}</a></td>
 			<td>{{job.skillsRequired}}</td>
@@ -24,6 +26,7 @@
 		</tr>
 
 	</table>
+	</div>
 	<div ng-show="showDetails" style="width:50%;margin-left:300px;margin-top:50px;background-color:#EFEBE9;">
 	
 	<h3 style="margin-top:20px;">Job Details</h3>
@@ -49,5 +52,5 @@
 	<br><h3>
 	Years of Exp :</h3><h4 style="margin-left:50px;">{{job.yrsofExp}}</h4>
 	</div>
-	</div>
+	
 	</section>

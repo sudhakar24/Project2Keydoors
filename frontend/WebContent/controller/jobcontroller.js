@@ -19,6 +19,7 @@ app.controller('JobController',function($scope,JobService,$location){
 				$scope.error=response.data
 				$location.path('/addjob')
 			}
+			
 		})
 	}
 	

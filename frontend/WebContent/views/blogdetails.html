@@ -1,11 +1,15 @@
+<section class="mbr-section mbr-section-hero mbr-section-full header2 mbr-parallax-background"
+	id="header2-6" data-rv-view="0"
+	style="background-image:url(images/backimg2.jpg);background-repeat: no-repeat;">
+
 <div id="main"
-	style="width: 40%; margin-left: auto; margin-right: auto;">
-	<h3>Approved Blogpost</h3>
+	style="width: 60%; margin-left: auto; margin-right: auto;margin-top:200px;">
+	<h3 style="font-family: cursive;color:green;">Approved Blogpost</h3>
 	<div class="row">
 		<div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<b>{{blogPost.blogTitle}}</b> <b>Created By:</b>{{blogPost.postedBy.firstname}}<br>
+					<b><h2>{{blogPost.blogTitle}}</h2></b> <b>Created By:</b><img src="http://localhost:8082/middleware/getimage/{{blogPost.postedBy.username}}" alt="Image not available" style="width:40px;height:40px; border-radius: 50%;"/>{{blogPost.postedBy.firstname}}
 					<b>Created On:</b>{{blogPost.postedOn | date :'yyyy:MM:dd'}}
 				</div>
 				<div class="panel-body">{{blogPost.blogContent}}</div>
@@ -14,33 +18,38 @@
 			</div>
 		</div>
 	</div>
-	<b> Number of likes</b> {{blogPost.likes}}
+	
 	<div ng-show="liked">
 		<span class="glyphicon glyphicon-thumbs-up" style="color: blue"
-			ng-click="updateLikes()"></span>
+			ng-click="updateLikes()">{{blogPost.likes}}</span>
 	</div>
 	<div ng-show="!liked">
 		<span class="glyphicon glyphicon-thumbs-up" style="color: black"
-			ng-click="updateLikes()"></span>
+			ng-click="updateLikes()">{{blogPost.likes}}</span>
 	</div>
-	Blog Comments
+	
 	<div class="container">
-		<textarea rows="4" cols="15" ng-model="commentText"></textarea>
+	<label style="color:brown;">Comments</label> 
+		<textarea class="form-control" rows="2" cols="10" ng-model="commentText"></textarea>
 		<br>
 		<!--  insert into blogcomment values (?,blogpostid,username,commenttext,commentedon) -->
-		<input type="submit" ng-click="addComment()" value="POST COMMENT">
+		<input type="submit" class="btn btn-success btn-outline" ng-click="addComment()" value="POST COMMENT">
 	</div>
-
+<br>
 	<div>
 		<b> <a href="" ng-click="showComments()">{{blogPost.blogComments.length}}
 				comments</a></b>
-		<ul ng-show="showComment" style="list-style: none">
-			<li
+				 <div class="list-group" ng-show="showComment">
+		<!-- <ul ng-show="showComment" style="list-style: none" class="list-group">
+		 -->
+			<li class="list-group-item"
 				ng-repeat="comment in blogPost.blogComments | orderBy:'-commentedOn'">
-				{{comment.commentText}}<br> <strong>Commented By </strong>
-				{{comment.commentedBy.username}} &nbsp; <strong>Commented
-					On</strong> {{comment.commentedOn | date : 'medium'}}
+				{{comment.commentText}}<br> <strong>Commented By : </strong>
+				{{comment.commentedBy.username}} <img src="http://localhost:8082/middleware/getimage/{{comment.commentedBy.username}}" style="width:30px;height:30px;border-radius: 50%;"/>
+				&nbsp; <strong>Commented
+					On : </strong>{{comment.commentedOn | date : 'medium'}}
 			</li>
-		</ul>
+		</div>
 	</div>
 	</div>
+	</section>

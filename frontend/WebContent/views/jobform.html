@@ -1,25 +1,26 @@
 <section class="mbr-section mbr-section-hero mbr-section-full header2 mbr-parallax-background"
 	id="header2-6" data-rv-view="0"
-	style="background-image:url(images/backimg.jpg);background-repeat: no-repeat;">
+	style="background-image:url(images/backimg1.jpg);background-repeat: no-repeat;">
 
 <div id="main"
 	style="width: 40%; margin-left: auto; margin-right: auto;margin-top:200px;">
 
 	<form>
 		<h3 align="center">ADD JOB</h3>
-		<label class="labelst">Company Name :</label> <input
-			class="form-control" type="text" ng-model="job.companyname"><br>
+		<span style="color:red;" ng-if="error.code==1">{{error.message}}</span>
+  <label class="labelst">Company Name :</label> <input
+			class="form-control" type="text" ng-model="job.companyname" required><br>
 		<label class="labelst">Job Title :</label> <input class="form-control"
-			type="text" ng-model="job.jobTitle"> <br><label class="labelst">Job
+			type="text" ng-model="job.jobTitle" required> <br><label class="labelst">Job
 			Description :</label> <input class="form-control" type="text"
-			ng-model="job.jobDescription"> <br><label class="labelst">Skills
+			ng-model="job.jobDescription" required> <br><label class="labelst">Skills
 			Required :</label> <input class="form-control" type="text"
-			ng-model="job.skillsRequired"> <br><label class="labelst">Location
-			:</label> <input class="form-control" type="text" ng-model="job.location"><br>
+			ng-model="job.skillsRequired" required> <br><label class="labelst">Location
+			:</label> <input class="form-control" type="text" ng-model="job.location" required><br>
 		<label class="labelst">Salary :</label> <input class="form-control"
-			type="text" ng-model="job.salary"><br> <label class="labelst">Years
+			type="text" ng-model="job.salary" required><br> <label class="labelst">Years
 			of Experience :</label> <input class="form-control" type="text"
-			ng-model="job.yrsofExp"><br>
+			ng-model="job.yrsofExp" required><br>
 			<button style="width:20%;margin-left: 40%;height:35px;color:white;"
 						class="btn btn-success btn-outline"
 		type="submit" class="submitbtn" ng-click="addJob()">Add Job</button>

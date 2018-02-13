@@ -18,7 +18,6 @@ app.controller('ChatCtrl', ['$rootScope' ,'$scope', 'socket', function($rootScop
                 $scope.addUser(user);
                 $scope.latestUser = user;
                 $scope.$apply();
-                alert($scope.latestUser + 'has joined the chat')
                 $('#joinedChat').fadeIn(500).delay(2000).fadeOut(500);
             }
             

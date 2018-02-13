@@ -1,5 +1,6 @@
 .form-control{
-	width:50%;
+	width:50% !important;
+	border-radius:20px !important;
 	
 }
 .labelst{

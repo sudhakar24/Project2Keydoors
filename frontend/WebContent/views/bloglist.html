@@ -3,42 +3,42 @@
 	style="background-image:url(images/backimg2.jpg);background-repeat: no-repeat;">
 
 <div id="main"
-	style="width: 40%; margin-left: auto; margin-right: auto;">
+	style="width: 50%; margin-left: auto; margin-right: auto;margin-top:250px;">
 	<div ng-show="currentUser.role=='ADMIN'">
-		<h3>List Of Blogs waiting for approval</h3>
+		<h2 style="font-family: cursive;color:blue;">List Of Blogs waiting for approval</h2>
 		<div ng-if="blogsWaitingForApproval.length==0">No blogposts
 			available</div>
 		<table ng-show="blogsWaitingForApproval.length>0" class="table">
 
-			<tr>
-				<td>Blog Title</td>
-				<td>Author</td>
-				<td>Posted On</td>
+			<tr >
+				<th>Blog Title</th>
+				<th>Author</th>
+				<th>Posted On</th>
 			</tr>
 
 			<tr ng-repeat="blogPost in blogsWaitingForApproval">
-				<td><a href="#/admin/getblog/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
-				<td>{{blogPost.postedBy.firstname}}&nbsp;{{blogPost.postedBy.lastname}}</td>
+				<td><a href="#/admin/getblog/{{blogPost.id}}" style="color:red;">{{blogPost.blogTitle}}</a></td>
+				<td><img src="http://localhost:8082/middleware/getimage/{{blogPost.postedBy.username}}" alt="Image not available" style="width:50px;height:50px; border-radius: 50%;"/>  {{blogPost.postedBy.firstname}}&nbsp;{{blogPost.postedBy.lastname}}</td>
 				<td>{{blogPost.postedOn | date : 'yyyy:MM:dd'}}</td>
 			</tr>
 
 		</table>
 	</div>
 	<div>
-		<h3>List of blogs approved</h3>
+		<h2 style="font-family: cursive;color:blue;">List of blogs approved</h2>
 		<div ng-if="blogsApproved.length==0">No Approved blogposts
 			available</div>
 		<table ng-show="blogsApproved.length>0" class="table">
 			
 				<tr>
-					<td>Blog Title</td>
-					<td>Author</td>
-					<td>Posted On</td>
+					<th>Blog Title</th>
+					<th>Author</th>
+					<th>Posted On</th>
 				</tr>
 
 				<tr ng-repeat="blogPost in blogsApproved | orderBy: '-postedOn'">
-					<td><a href="#/getblog/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
-					<td>{{blogPost.postedBy.username}}</td>
+					<td><a href="#/getblog/{{blogPost.id}}" style="color:green;">{{blogPost.blogTitle}}</a></td>
+					<td><img src="http://localhost:8082/middleware/getimage/{{blogPost.postedBy.username}}" alt="Image not available" style="width:50px;height:50px; border-radius: 50%;"/>{{blogPost.postedBy.username}}</td>
 					<td>{{blogPost.postedOn | date : 'medium'}}</td>
 				</tr>
 			
