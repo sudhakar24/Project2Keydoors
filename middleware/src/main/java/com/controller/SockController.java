@@ -16,34 +16,67 @@ import com.model.chat;
 
 @Controller
 public class SockController {
+
 	private static final Log logger = LogFactory.getLog(SockController.class);
 
-	private SimpMessagingTemplate messageTemplate;
-	private  List<String> users= new ArrayList<String>();
-	
+	private final SimpMessagingTemplate messagingTemplate;
+
+	private List<String> users = new ArrayList<String>();
+
+
 	@Autowired
-	public SockController(SimpMessagingTemplate messageTemplate) {
-		super();
-		this.messageTemplate = messageTemplate;
+
+	public SockController(SimpMessagingTemplate messagingTemplate) {
+
+		this.messagingTemplate = messagingTemplate;
+
 	}
-	
+
 	@SubscribeMapping("/join/{username}")
-	public List<String> join(@DestinationVariable("username") String username){
-		if(!users.contains(username)){
-			users.add(username);
-		}
-		messageTemplate.convertAndSend("/topic/join",username);
+
+	public List<String> join(@DestinationVariable("username") String username) {
+        
+
+		 System.out.println("username in sockcontroller" + username);
+		 
+		 if(!users.contains(username)) {
+				users.add(username);
+			}
+
+
+		System.out.println("====JOIN==== " + username);
+
+		// notify all subscribers of new user
+
+		messagingTemplate.convertAndSend("/topic/join", username);
+
 		return users;
+
 	}
-	
-	@MessageMapping(value="/chat")
-	public void chatsReceived(chat chat){
-		if(chat.getTo().equals("all")){
-			messageTemplate.convertAndSend("/queue/chats",chat);
+
+	@MessageMapping(value = "/chat")
+
+	public void chatReveived(chat chat) {
+
+
+		if ("all".equals(chat.getTo())) {
+
+			System.out.println("IN CHAT REVEIVED " + chat.getMessage() + " " + chat.getFrom() + " to " + chat.getTo());
+
+			messagingTemplate.convertAndSend("/queue/chats", chat);
+
 		}
-		else{
-			messageTemplate.convertAndSend("/queue/chats/"+chat.getFrom(),chat);
-			messageTemplate.convertAndSend("/queue/chats/"+chat.getTo(),chat);
+
+		else {
+
+			System.out.println("CHAT TO " + chat.getTo() + " From " + chat.getFrom() + " Message " + chat.getMessage());
+
+			messagingTemplate.convertAndSend("/queue/chats/" + chat.getTo(), chat);
+
+			messagingTemplate.convertAndSend("/queue/chats/" + chat.getFrom(), chat);
+
 		}
+
 	}
+
 }

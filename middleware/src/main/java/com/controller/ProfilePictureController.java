@@ -20,34 +20,33 @@ import com.model.ProfilePicture;
 @Controller
 public class ProfilePictureController {
 	@Autowired
-	private ProfilePictureDao profilepicturedao;
-	
-	@RequestMapping(value="/uploadProfilepic", method=RequestMethod.POST)
-	public ResponseEntity<?> uploadprofilepic(@RequestParam CommonsMultipartFile image,HttpSession session){
-		String username=(String) session.getAttribute("username");
-		if(username==null){
-			ErrorClazz error=new ErrorClazz(5,"Unauthorized access");
-			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
-		}
-		
-		ProfilePicture profilepicture=new ProfilePicture();
-		profilepicture.setUsername(username);
-		profilepicture.setImage(image.getBytes());
-		profilepicturedao.uploadprofilepicture(profilepicture);
-		return new ResponseEntity<ProfilePicture>(profilepicture,HttpStatus.OK);
+	private ProfilePictureDao profilePictureDao;
+	@RequestMapping(value="/uploadprofilepicture",method=RequestMethod.POST)
+	public ResponseEntity<?> uploadProfilePicture(@RequestParam CommonsMultipartFile image,HttpSession session)
+	{
+	String username = (String) session.getAttribute("username");
+	if (username == null) {
+		ErrorClazz error = new ErrorClazz(5, "Unauthorized access");
+		return new ResponseEntity<ErrorClazz>(error, HttpStatus.UNAUTHORIZED);
 	}
-	
-	
-	@RequestMapping(value="/getProfilepic/{username}", method=RequestMethod.GET)
-	public  @ResponseBody byte[] getprofilepic(@PathVariable String username,HttpSession session){
-		String loginId=(String) session.getAttribute("username");
-		if(loginId==null)
+	ProfilePicture profilePicture=new ProfilePicture();
+	profilePicture.setImage(image.getBytes());
+	profilePicture.setUsername(username);
+	profilePictureDao.saveorupdateProfilePicture(profilePicture);
+	return new ResponseEntity<ProfilePicture>(profilePicture,HttpStatus.OK);
+	}
+	@RequestMapping(value="/getimage/{username}",method=RequestMethod.GET)
+	public @ResponseBody byte[] getProfilePicture(@PathVariable String username,HttpSession session){
+		String loginId = (String) session.getAttribute("username");
+		if(loginId==null){
 			return null;
-		ProfilePicture profilepicture=profilepicturedao.getProfilePicture(username);
-		if(profilepicture==null)
+		}
+		ProfilePicture profilePicture=profilePictureDao.getProfilePicture(username);
+		if(profilePicture==null)
 			return null;
 		else
-			return profilepicture.getImage();
-	}
+			return profilePicture.getImage();
+
+		}
 	
 }
