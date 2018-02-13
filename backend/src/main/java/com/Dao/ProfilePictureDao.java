@@ -1,9 +1,8 @@
 package com.Dao;
 
-
 import com.model.ProfilePicture;
 
 public interface ProfilePictureDao {
-	void uploadprofilepicture(ProfilePicture profilepic);
-	ProfilePicture getProfilePicture(String username);
+void saveorupdateProfilePicture(ProfilePicture profilepicture);
+ProfilePicture getProfilePicture(String username);
 }

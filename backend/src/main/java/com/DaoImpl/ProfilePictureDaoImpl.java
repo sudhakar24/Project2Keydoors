@@ -9,23 +9,21 @@ import org.springframework.stereotype.Repository;
 
 import com.Dao.ProfilePictureDao;
 import com.model.ProfilePicture;
+
 @Repository
 @Transactional
-public class ProfilePictureDaoImpl implements ProfilePictureDao {
+public class ProfilePictureDaoImpl implements ProfilePictureDao{
+@Autowired
+private SessionFactory sessionFactory;
 
-	@Autowired
-	private SessionFactory sessionFactory;
+public void saveorupdateProfilePicture(ProfilePicture profilepicture) {
+	Session session=sessionFactory.getCurrentSession();
+	session.saveOrUpdate(profilepicture);
+}
 
-	public void uploadprofilepicture(ProfilePicture profilepic) {
-		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(profilepic);
-	}
-
-	public ProfilePicture getProfilePicture(String username) {
-		Session session=sessionFactory.getCurrentSession();
-		ProfilePicture profilepic=(ProfilePicture) session.get(ProfilePicture.class, username);
-		return profilepic;
-	}
-
-
+public ProfilePicture getProfilePicture(String username) {
+	Session session=sessionFactory.getCurrentSession();
+	ProfilePicture profilePicture=(ProfilePicture)session.get(ProfilePicture.class,username);
+	return profilePicture;
+} 
 }

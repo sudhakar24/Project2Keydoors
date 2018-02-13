@@ -6,7 +6,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="profilepicture")
+@Table(name="profilepicture_s180133")
 public class ProfilePicture {
 	@Id
 	private String username;
@@ -24,5 +24,5 @@ public class ProfilePicture {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	
+
 }

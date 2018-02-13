@@ -43,7 +43,7 @@ public class DBconfiguration {
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[] = new Class[] { User.class,Job.class,BlogPost.class,BlogPostLikes.class,BlogComment.class,Notification.class,ProfilePicture.class,Friend.class};
+		Class classes[] = new Class[] { User.class,Job.class,BlogPost.class,BlogPostLikes.class,BlogComment.class,Notification.class,Friend.class,ProfilePicture.class};
 		System.out.println("Database created");
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
